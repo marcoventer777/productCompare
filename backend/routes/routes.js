@@ -1,11 +1,11 @@
 const express = require('express');
-const query = require('../database/query');
 const router = express.Router();
+const query = require('../database/query');
 
-router.get('/', async(req, res) => {
-    await query.GetProducts();
-    // console.log(results);
-    res.send('Welcome to ProductCompare')
+router.get('/products', async(req, res) => {
+     let results = await query.GetProducts();
+    console.log(results.recordset);
+    res.json(results.recordset);
 });
 
 module.exports = router;

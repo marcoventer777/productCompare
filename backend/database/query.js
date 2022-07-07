@@ -1,10 +1,29 @@
-const sql = require("./connect");
+require('dotenv').config();
 
-function GetProducts() {
-    let connect = sql.con();
-    // const [results,] =  sql.connect.query("SELECT * FROM Product_Store_Table");
-    // // connection.end();
-   // return results;
-}
+const sql = require('mssql');
 
-module.exports = {GetProducts};
+const config = {
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_HOST,
+    database: process.env.DATABASE,
+    options: {
+        trustedConnection: true,
+        encrypt: true,
+        enableArithAbort: true,
+        trustServerCertificate: true
+    }
+};
+
+async function GetProducts(){
+    try {
+        await sql.connect(config)
+        const result = await sql.query("SELECT * FROM Product_Table");
+        return result;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+
+ module.exports = {GetProducts};
