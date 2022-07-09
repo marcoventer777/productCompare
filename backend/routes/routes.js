@@ -4,19 +4,16 @@ const query = require('../database/query');
 
 router.get('/products', async(req, res) => {
     let results = await query.GetProducts(req.query.key);
-    console.log(results.recordset);
     res.json(results.recordset);
 });
 
 router.get('/product/:id', async(req, res) => {
     let results = await query.GetProduct(req.params.id);
-    console.log(results.recordset);
     res.json(results.recordset);
 });
 
 router.get('/product/:id/prices', async(req, res) => {
     let results = await query.GetPricesForProduct(req.params.id);
-    console.log(results.recordset);
     res.json(results.recordset);
 });
 
