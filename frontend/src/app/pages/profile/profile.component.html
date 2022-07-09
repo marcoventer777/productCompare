@@ -1,0 +1,7 @@
+<article *ngIf="auth.user$ | async as user" class="profile-container">
+  <img [src]="user.picture" alt="Profile Photo" />
+  <section>
+    <h2>{{ user.name }}</h2>
+    <p>{{ user.email }}</p>
+  </section>
+</article>
