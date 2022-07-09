@@ -5,23 +5,28 @@ import { ConvertToSpacesPipe } from '../shared/convert-to-spaces.pipe';
 import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from './product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
+import { AuthGuard } from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
-    ConvertToSpacesPipe
+    ConvertToSpacesPipe,
   ],
   imports: [
     RouterModule.forChild([
-      { path: 'products', component: ProductListComponent },
+      {
+        path: 'products',
+        component: ProductListComponent,
+        canActivate: [AuthGuard],
+      },
       {
         path: 'products/:id',
         canActivate: [ProductDetailGuard],
-        component: ProductDetailComponent
-      }
+        component: ProductDetailComponent,
+      },
     ]),
-    SharedModule
-  ]
+    SharedModule,
+  ],
 })
-export class ProductModule { }
+export class ProductModule {}

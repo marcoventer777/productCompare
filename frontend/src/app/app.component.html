@@ -1,18 +1,26 @@
-<nav class='navbar navbar-expand navbar-light bg-light'>
-  <a class='navbar-brand'>{{pageTitle}}</a>
-  <ul class='nav nav-pills'>
-    <li><a class='nav-link' routerLinkActive='active' routerLink='/welcome'>Home</a></li>
-    <li><a class='nav-link' routerLinkActive='active' routerLink='/products'>Product List</a></li>
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand">{{ pageTitle }}</a>
+  <ul class="nav nav-pills">
+    <li>
+      <a class="nav-link" routerLinkActive="active" routerLink="/welcome"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a class="nav-link" routerLinkActive="active" routerLink="/products"
+        >Product List</a
+      >
+    </li>
     <li>
       <ng-container *ngIf="auth.isAuthenticated$ | async; else logout">
-        <a (click)="auth.logout()">logout</a>
+        <a class="nav-link" (click)="auth.logout()">logout</a>
       </ng-container>
       <ng-template #logout>
-        <a (click)="auth.loginWithPopup()">login</a>
+        <a class="nav-link" (click)="auth.loginWithPopup()">login</a>
       </ng-template>
     </li>
   </ul>
 </nav>
-<div class='container'>
+<div class="container">
   <router-outlet></router-outlet>
 </div>
