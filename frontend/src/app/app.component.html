@@ -14,7 +14,11 @@
       </li>
       <li>
         <ng-container *ngIf="auth.isAuthenticated$ | async; else logout">
-          <a class="nav-link" (click)="auth.logout()">logout</a>
+          <a
+            class="nav-link"
+            (click)="auth.logout({ returnTo: document.location.origin })"
+            >logout</a
+          >
         </ng-container>
         <ng-template #logout>
           <a class="nav-link" (click)="auth.loginWithPopup()">login</a>
