@@ -6,6 +6,8 @@ config.js
 **/src/environments/environment.prod.ts
 **/src/environments/environment.ts
 
+/package-lock.json
+
 # Compiled output
 /dist
 /tmp
