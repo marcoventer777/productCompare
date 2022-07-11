@@ -3,14 +3,14 @@ import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, map, tap } from 'rxjs/operators';
 import { IProduct } from "./product";
+import { environment } from "src/environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  // If using Stackblitz, replace the url with this line
-  // because Stackblitz can't find the api folder.
-  private productUrl = 'assets/products/products.json';
+
+  private productUrl = environment.serverUrl + '/products';
 
   constructor(private http: HttpClient) { }
 

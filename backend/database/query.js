@@ -22,7 +22,7 @@ async function GetProducts(key){
         if(key){
             result = await sql.query(
                 `SELECT * FROM Product_Table
-                 WHERE Product_Name LIKE '%${key}%'`
+                 WHERE productName LIKE '%${key}%'`
             );
         }else{
             result = await sql.query(`SELECT * FROM Product_Table`);
@@ -38,7 +38,7 @@ async function GetProduct(productCode){
         await sql.connect(config)
         let result = await sql.query(
             `SELECT * FROM Product_Table
-             WHERE Product_Code = '${productCode}'`
+             WHERE productCode = '${productCode}'`
         );
         return result;
     } catch (err) {
@@ -50,10 +50,10 @@ async function GetPricesForProduct(productCode){
     try {
         await sql.connect(config)
         let result = await sql.query(
-            `SELECT Product_Store_Table.Price, Store_Table.Store_Name
+            `SELECT Product_Store_Table.price, Store_Table.Store_Name
             FROM Product_Store_Table INNER JOIN Store_Table 
             ON Product_Store_Table.Store_Code = Store_Table.Store_Code 
-            WHERE Product_Store_Table.Product_Code = ${productCode}`
+            WHERE Product_Store_Table.productCode = ${productCode}`
         );
         return result;
     } catch (err) {
@@ -65,7 +65,7 @@ async function AddProduct(productName){
     try {
         await sql.connect(config)
         let result = await sql.query(
-            `INSERT INTO Product_Table (Product_Name)
+            `INSERT INTO Product_Table (productName)
             VALUES ('${productName}');`
         );
         return result;
@@ -91,7 +91,7 @@ async function AddPrice(productCode, storeCode, price){
     try {
         await sql.connect(config)
         let result = await sql.query(
-            `INSERT INTO Product_Store_Table (Product_Code, Store_Code, Price)
+            `INSERT INTO Product_Store_Table (productCode, Store_Code, price)
             VALUES ('${productCode}', '${storeCode}', ${price});`
         );
         return result;
