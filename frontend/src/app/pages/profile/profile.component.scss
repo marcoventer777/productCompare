@@ -15,3 +15,22 @@ article.profile-container {
     font-size: 1.2rem;
   }
 }
+
+section.align-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+
+  button.demo-btn {
+    padding: 0 1rem;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 6px;
+    color: black;
+    font-size: 1.2rem;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

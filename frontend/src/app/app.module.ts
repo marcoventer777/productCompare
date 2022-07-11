@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/home/welcome.component';
 import { RouterModule } from '@angular/router';
 import { ProductModule } from './components/products/product.module';
-import { AuthModule } from '@auth0/auth0-angular';
-import { environment } from 'src/environments/environment';
-import { AuthGuard } from '@auth0/auth0-angular';
+import {
+  AuthModule,
+  AuthGuard,
+  AuthHttpInterceptor,
+} from '@auth0/auth0-angular';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { environment as env } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -32,10 +35,19 @@ import { ErrorComponent } from './pages/error/error.component';
       { path: '**', component: ErrorComponent, pathMatch: 'full' },
     ]),
     AuthModule.forRoot({
-      domain: environment.domain,
-      clientId: environment.clientId,
+      ...env,
+      httpInterceptor: {
+        allowedList: [`${env.serverUrl}/prod/api/*`],
+      },
     }),
     ProductModule,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
