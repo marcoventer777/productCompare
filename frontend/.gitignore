@@ -2,8 +2,8 @@
 
 /.env
 
-**/src/environments/environment.prod.ts
-**/src/environments/environment.ts
+**/environments/environment.prod.ts
+**/environments/environment.ts
 
 # Compiled output
 /dist
