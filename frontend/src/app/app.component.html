@@ -13,6 +13,11 @@
         >
       </li>
       <li>
+        <a class="nav-link" routerLinkActive="active" routerLink="/profile"
+          >Profile</a
+        >
+      </li>
+      <li>
         <ng-container *ngIf="auth.isAuthenticated$ | async; else logout">
           <a
             class="nav-link"

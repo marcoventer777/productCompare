@@ -1,0 +1,10 @@
+@domain_local = http://localhost:3000/prod/api
+@domain_live = https://product-compare.bbdgp.cloud/
+
+@domain = {{domain_local}}
+
+### 200
+GET {{domain}}/products
+
+### 404
+GET {{domain}}/product/1
