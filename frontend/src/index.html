@@ -3,11 +3,17 @@
 
 <head>
   <meta http-equiv="Content-Security-Policy" content=" 
-  script-src 'self' 'unsafe-inline';
+  script-src 
+  'sha256-dDbx7mvV6+bdG/1OA9lWBY9zhsWSfaipgW/dRPAIwp8='
+  'sha256-kb72HJYcqIHOj3ueiy6MyDAMyqeL+M0avdAqToyC7cc='
+  'sha256-z0ubenakH3wsERi3dpkvqFX3KqP549XAjga842501KM='
+  'strict-dynamic';
+  
   style-src 'self' 'unsafe-inline';
   object-src 'none';
+  base-uri 'self';
   trusted-types angular;
-  require-trusted-types-for 'script'
+  require-trusted-types-for 'script';
   ">
 
   <meta charset="utf-8">
@@ -21,7 +27,5 @@
 <body>
   <pm-root></pm-root>
 </body>
-
-
 
 </html>
