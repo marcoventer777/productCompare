@@ -13,15 +13,13 @@ import {
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { environment as env } from 'src/environments/environment';
-import { TrustPipe } from './trust.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     ProfileComponent,
-    ErrorComponent,
-    TrustPipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
