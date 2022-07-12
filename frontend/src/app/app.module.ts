@@ -13,6 +13,7 @@ import {
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { environment as env } from 'src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { environment as env } from 'src/environments/environment';
         allowedList: [`${env.serverUrl}/prod/api/*`],
       },
     }),
-    ProductModule
+    ProductModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
