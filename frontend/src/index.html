@@ -4,8 +4,9 @@
 <head>
   <meta http-equiv="Content-Security-Policy" content=" 
   script-src 
-  'sha256-JCqpbzwkR4OinNnDZKtcvmaA/ovxEt46/+BenX4eIXI='
-  'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='
+  'sha256-dDbx7mvV6+bdG/1OA9lWBY9zhsWSfaipgW/dRPAIwp8='
+  'sha256-kb72HJYcqIHOj3ueiy6MyDAMyqeL+M0avdAqToyC7cc='
+  'sha256-z0ubenakH3wsERi3dpkvqFX3KqP549XAjga842501KM='
   'strict-dynamic';
   
   style-src 'self' 'unsafe-inline';
@@ -25,20 +26,6 @@
 
 <body>
   <pm-root></pm-root>
-  <script>
-    let scripts = [
-      "runtime.7b63b9fd40098a2e8207.js", 
-      "polyfills.00096ed7d93ed26ee6df.js",
-      "main.8e56a2a77fee2657fb91.js"
-    ];
-    scripts.forEach(function (scriptUrl) {
-      var s = document.createElement('script');
-      s.src = scriptUrl;
-      s.async = false; // preserve execution order.
-      document.body.appendChild(s);
-    });
-
-  </script>
 </body>
 
 </html>
