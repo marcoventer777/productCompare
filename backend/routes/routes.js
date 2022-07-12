@@ -16,7 +16,7 @@ const checkJwt = jwt({
   algorithms: ['RS256'],
 });
 
-router.get('/products', checkJwt, async (req, res) => {
+router.get('/products', async (req, res) => {
   let results = await query.GetProducts(req.query.key);
   res.json(results.recordset);
 });
