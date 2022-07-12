@@ -1,3 +1,4 @@
+<mat-form-field>
 <div class='card'>
   <div class='card-header'>
     {{pageTitle}}
@@ -8,6 +9,10 @@
       <div class='col-md-4'>
         <input type='text' [(ngModel)]='listFilter' />
       </div>
+    </div>
+    <div>
+        <mat-label>Favorite food</mat-label>
+        <input matInput placeholder="Ex. Pizza" value="Sushi">
     </div>
     <div class='row' *ngIf='listFilter'>
       <div class='col-md-6'>
@@ -62,3 +67,4 @@
 <div *ngIf='errorMessage' class='alert alert-danger'>
   Error: {{ errorMessage }}
 </div>
+</mat-form-field>

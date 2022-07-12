@@ -40,7 +40,7 @@ import { environment as env } from 'src/environments/environment';
         allowedList: [`${env.serverUrl}/prod/api/*`],
       },
     }),
-    ProductModule,
+    ProductModule
   ],
   providers: [
     {
@@ -51,4 +51,4 @@ import { environment as env } from 'src/environments/environment';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
