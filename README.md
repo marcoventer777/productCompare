@@ -88,13 +88,6 @@ cd frontend && npm i && ng serve -o
 
 <hr />
 
-### Architectural Diagram of live instances on AWS
-
-<div align='center'>
-  <img src='https://user-images.githubusercontent.com/95920140/178762051-3a540466-3e61-4bc7-a3d8-814f43cd59f6.svg' alt='Architectural Diagram' />
-
-<hr />
-
 ### Security measures implemented
 
 #### Backend
@@ -106,6 +99,7 @@ cd frontend && npm i && ng serve -o
 - npm libraries audit 
 
 #### Frontend
+
 - Captchas
 - Offline Template compiler (ng build in Angular) - eliminates template injection. 
 - CSRF (Cross Site Request Forgery): Built into Angular HTTP Client 
@@ -118,4 +112,10 @@ cd frontend && npm i && ng serve -o
   - trusted-types angular;  
   - require-trusted-types-for 'script'; 
 - npm libraries audit 
+
+
+### Architectural Diagram of live instances on AWS
+
+<div align='center'>
+  <img src='https://user-images.githubusercontent.com/98101709/178777878-0cd31ff4-3e2c-4116-b6c6-aa35fc3c0e3d.png' alt='Architectural Diagram' />
 </div>
