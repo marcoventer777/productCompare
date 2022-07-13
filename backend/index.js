@@ -11,7 +11,7 @@ app.use(
 
 app.use('/api', routes);
 
-app.use(function (req, res, next) {
+app.use(function (err, req, res, next) {
   if (err.name === 'NotFoundError') {
     res
       .status(404)
