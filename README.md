@@ -93,5 +93,29 @@ cd frontend && npm i && ng serve -o
 <div align='center'>
   <img src='https://user-images.githubusercontent.com/95920140/178762051-3a540466-3e61-4bc7-a3d8-814f43cd59f6.svg' alt='Architectural Diagram' />
 
-  ###### Thank you!
+<hr />
+
+### Security measures implemented
+
+#### Backend
+
+- Helmet middleware to configure CSP (Content Security Policy) for Api headers (mitigates XSS, CSRF, XSS)
+- Authentication and Authorization (Auth0) 
+- Backend endpoints guarded using JWT.
+- 'x-powered-by' hidden 
+- npm libraries audit 
+
+#### Frontend
+- Captchas
+- Offline Template compiler (ng build in Angular) - eliminates template injection. 
+- CSRF (Cross Site Request Forgery): Built into Angular HTTP Client 
+- XSSI (Cross Site Script Inclusion): Built into Angular HTTP Client 
+- XSS (Cross Site Scripting): Angular does this by default by sanitizing possible string values that can contain script tags. 
+- XSS solution: CSP (Content Security Policy): specify manually in index.html with custom policies: 
+  - script-src 'self' 'unsafe-inline'; 
+  - object-src 'none'; 
+  - base-uri 'self';  
+  - trusted-types angular;  
+  - require-trusted-types-for 'script'; 
+- npm libraries audit 
 </div>
