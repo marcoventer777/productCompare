@@ -1,7 +1,12 @@
-# Product / Price Compare
+<div align='center'>
 
-###### A place to view, compare and add products as an admin
+  <h1>Product / Price Compare</h1>
 
+  ###### A place to view, compare and add products as an admin
+
+  <img src='https://user-images.githubusercontent.com/95920140/178756603-4729dd60-71b1-47df-8cae-3e06effa64a4.png' alt="Product Compare Logo" />
+
+</div>
 <hr />
 
 ## Tech
@@ -15,7 +20,7 @@
 - [_Express.js_](https://expressjs.com/)
 - [_Serverless framework_](https://www.serverless.com/)
 
-#### Backend
+#### Database
 
 - [_MS SQL Server_](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
@@ -80,3 +85,13 @@ cd frontend && npm i && ng serve -o
 - [Tshiamo Mahloko](https://github.com/tshiamomahloko)
 - [Reece Peters](https://github.com/ReeceJamesPeters)
 - [Fabio Sousa Vieira](https://github.com/FabioSVBBD)
+
+<hr />
+
+### Architectural Diagram of live instances on AWS
+
+<div align='center'>
+  <img src='https://user-images.githubusercontent.com/95920140/178762051-3a540466-3e61-4bc7-a3d8-814f43cd59f6.svg' alt='Architectural Diagram' />
+
+  ###### Thank you!
+</div>
