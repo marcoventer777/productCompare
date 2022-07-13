@@ -1,0 +1,82 @@
+# Product / Price Compare
+
+###### A place to view, compare and add products as an admin
+
+<hr />
+
+## Tech
+
+#### Frontend
+
+- [_Angular 13_](https://angular.io/)
+
+#### Backend
+
+- [_Express.js_](https://expressjs.com/)
+- [_Serverless framework_](https://www.serverless.com/)
+
+#### Backend
+
+- [_MS SQL Server_](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
+#### Common
+
+- [_Auth0_](https://auth0.com/) as an auth provider
+- [_AWS_](https://aws.amazon.com/) as a cloud service
+
+<hr />
+
+## Getting the app running (Hypothetically)
+
+##### Misc tools
+
+- [_node_](https://nodejs.org/en/) - JS Runtime
+- [_npm_](https://www.npmjs.com/) - Package manager for server side javascript
+- [_npx_](https://www.npmjs.com/package/npx) - `npm` tool for running locally installed npm packages from cli
+
+###### Backend
+
+```shell
+cd backend && npm i && npx serverless offline
+```
+
+- This will start up an express API wrapped in a serverless app on port 3000
+
+###### Frontend
+
+```shell
+cd frontend && npm i && ng serve -o
+```
+
+- This will start up the angular frontend on port 4200
+
+<hr />
+
+##### Important to note: If you do not have the secrets used in backend and frontend, you will not be able to run the project locally. (That is by design)
+
+<hr />
+
+## Deployment
+
+#### Frontend
+
+- Firstly, frontend is built using Angular's cli, specifically `ng build`, and the build was then placed in an S3 Bucket.
+
+#### Backend
+
+- Express api was wrapped in a serverless application using the `npm` package `serverless-http` and then deployed using the serverless framework to AWS Lambda.
+
+#### Database
+
+- Our database is a MS SQL Server db and is hosted an AWS RDS
+
+<hr />
+
+#### Contributors
+
+- [Amy Pegram](https://github.com/AmyPegramBBD)
+- [Marco Venter](https://github.com/marcoventer777)
+- [Waseem Ahmed](https://github.com/wasahmed)
+- [Tshiamo Mahloko](https://github.com/tshiamomahloko)
+- [Reece Peters](https://github.com/ReeceJamesPeters)
+- [Fabio Sousa Vieira](https://github.com/FabioSVBBD)
