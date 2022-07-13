@@ -15,13 +15,13 @@ export class ProfileComponent implements OnInit {
 
   callApi(): void {
     this.http
-      .get(`${env.serverUrl}/prod/api/products`)
+      .get(`${env.serverUrl}/products`)
       .subscribe((result: any) => console.log(result));
   }
 
   callSecureApi(): void {
     this.http
-      .get(`${env.serverUrl}/prod/api/protected`)
+      .get(`${env.serverUrl}/protected`)
       .subscribe((result: any) => console.log(result));
   }
 }

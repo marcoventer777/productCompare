@@ -19,7 +19,7 @@ import { environment as env } from 'src/environments/environment';
     AppComponent,
     WelcomeComponent,
     ProfileComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +37,7 @@ import { environment as env } from 'src/environments/environment';
     AuthModule.forRoot({
       ...env,
       httpInterceptor: {
-        allowedList: [`${env.serverUrl}/prod/api/*`],
+        allowedList: [`${env.serverUrl}/*`],
       },
     }),
     ProductModule,
