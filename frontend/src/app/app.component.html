@@ -1,37 +1,25 @@
-<article class="bg-light">
-  <h1 class="page-title">{{ pageTitle }}</h1>
-  <nav class="navbar navbar-expand navbar-light center-align">
-    <ul class="nav nav-pills">
-      <li>
-        <a class="nav-link" routerLinkActive="active" routerLink="/welcome"
+<h1 class="page-title">{{ pageTitle }}</h1>
+  <nav mat-tab-nav-bar mat-align-tabs="center">
+        <a class="nav-link" mat-tab-link routerLinkActive="active" routerLink="/welcome"
           >Home</a
         >
-      </li>
-      <li>
-        <a class="nav-link" routerLinkActive="active" routerLink="/products"
+        <a mat-tab-link class="nav-link" routerLinkActive="active" routerLink="/products"
           >Product List</a
         >
-      </li>
-      <li>
-        <a class="nav-link" routerLinkActive="active" routerLink="/profile"
+        <a mat-tab-link class="nav-link" routerLinkActive="active" routerLink="/profile"
           >Profile</a
         >
-      </li>
-      <li>
         <ng-container *ngIf="auth.isAuthenticated$ | async; else logout">
-          <a
+          <a  mat-tab-link
             class="nav-link"
             (click)="auth.logout({ returnTo: document.location.origin })"
-            >logout</a
+            >Logout</a
           >
         </ng-container>
         <ng-template #logout>
-          <a class="nav-link" (click)="auth.loginWithPopup()">login</a>
+          <a mat-tab-link class="nav-link" (click)="auth.loginWithPopup()">Login</a>
         </ng-template>
-      </li>
-    </ul>
   </nav>
-</article>
 <div class="container">
   <router-outlet></router-outlet>
 </div>

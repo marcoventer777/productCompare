@@ -13,7 +13,10 @@ import {
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { environment as env } from 'src/environments/environment';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button'
+import { MatTabsModule } from '@angular/material/tabs'
+import { MatCardModule } from '@angular/material/card'
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,10 @@ import { environment as env } from 'src/environments/environment';
       },
     }),
     ProductModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatCardModule
   ],
   providers: [
     {
@@ -51,4 +58,4 @@ import { environment as env } from 'src/environments/environment';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

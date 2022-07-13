@@ -6,6 +6,14 @@ import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from './product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatIconModule } from '@angular/material/icon'
+import { BrowserModule } from '@angular/platform-browser';
+import { MatButtonModule } from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -27,6 +35,14 @@ import { AuthGuard } from '@auth0/auth0-angular';
       },
     ]),
     SharedModule,
-  ],
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    BrowserModule,
+    MatButtonModule,
+    MatCardModule
+  ]
 })
-export class ProductModule {}
+export class ProductModule { }
