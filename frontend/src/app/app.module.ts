@@ -22,7 +22,7 @@ import { MatCardModule } from '@angular/material/card'
     AppComponent,
     WelcomeComponent,
     ProfileComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,7 @@ import { MatCardModule } from '@angular/material/card'
     AuthModule.forRoot({
       ...env,
       httpInterceptor: {
-        allowedList: [`${env.serverUrl}/prod/api/*`],
+        allowedList: [`${env.serverUrl}/*`],
       },
     }),
     ProductModule,

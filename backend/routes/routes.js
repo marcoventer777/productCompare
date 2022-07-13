@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('express-jwt');
+const jwtAuthz = require('express-jwt-authz');
 const jwksRsa = require('jwks-rsa');
 const router = express.Router();
 const query = require('../database/query');
@@ -16,12 +17,16 @@ const checkJwt = jwt({
   algorithms: ['RS256'],
 });
 
-router.get('/products', async (req, res) => {
+const hasSuperPowers = jwtAuthz(['create:everything'], {
+  customScopeKey: 'permissions',
+});
+
+router.get('/products', checkJwt, async (req, res) => {
   let results = await query.GetProducts(req.query.key);
   res.json(results.recordset);
 });
 
-router.get('/protected', checkJwt, async (req, res) => {
+router.get('/protected', checkJwt, hasSuperPowers, async (req, res) => {
   res.json({ message: 'success' });
 });
 
@@ -35,24 +40,28 @@ router.get('/product/:id/prices', checkJwt, async (req, res) => {
   res.json(results.recordset);
 });
 
-// Add admin checks
-router.post('/product/:name', checkJwt, async (req, res) => {
+router.post('/product/:name', checkJwt, hasSuperPowers, async (req, res) => {
   let result = await query.AddProduct(req.params.name);
   res.status(200).json(result);
 });
 
-router.post('/store/:name', checkJwt, async (req, res) => {
+router.post('/store/:name', checkJwt, hasSuperPowers, async (req, res) => {
   let result = await query.AddStore(req.params.name);
   res.status(200).json(result);
 });
 
-router.post('/price/:product/:store/:price', checkJwt, async (req, res) => {
-  let result = await query.AddPrice(
-    req.params.product,
-    req.params.store,
-    req.params.price
-  );
-  res.status(200).json(result);
-});
+router.post(
+  '/price/:product/:store/:price',
+  checkJwt,
+  hasSuperPowers,
+  async (req, res) => {
+    let result = await query.AddPrice(
+      req.params.product,
+      req.params.store,
+      req.params.price
+    );
+    res.status(200).json(result);
+  }
+);
 
 module.exports = router;
