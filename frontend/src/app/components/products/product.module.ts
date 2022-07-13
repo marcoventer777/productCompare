@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatIconModule } from '@angular/material/icon'
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MatButtonModule } from '@angular/material/button'
     BrowserAnimationsModule,
     MatIconModule,
     BrowserModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ]
 })
 export class ProductModule { }
