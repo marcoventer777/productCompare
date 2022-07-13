@@ -3,11 +3,15 @@ const express = require('express');
 const routes = require('./routes/routes');
 const cors = require('cors');
 const app = express();
+const helmet =require('helmet');
+
 app.use(
   cors({
     origin: ['http://localhost:4200', 'https://product-compare.bbdgp.cloud'],
   })
 );
+
+app.use(helmet());
 
 app.use('/api', routes);
 
